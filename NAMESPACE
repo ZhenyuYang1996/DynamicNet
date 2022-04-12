@@ -4,5 +4,4 @@ import(methods)
 import(stats)
 import(utils)
 
-
 export(Fclusty)

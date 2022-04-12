@@ -1,35 +1,40 @@
-#library("wavelets")
-#library("mvtnorm")
-
-#set.seed(1)
-
-
 #' Title
 #'
-#' @param tmp_data a Input data matrix
-#' @param nt a Input data matrix
-#' @param J a Input data matrix
-#' @param r a Input data matrix
-#' @param init_rho a Input data matrix
-#' @param init_rho a Input data matrix
-#' @param init_rho a Input data matrix
-#' @param init_sigsq a Input data matrix
-#' @param out_file_name a Input data matrix
+#' @param data Enter the observation data matrix with dimension ????, and each row is an observation vector.
+#' @param times Enter the time series vector with the dimension ????
+#' @param startK The initial number of clusters, of type integer, startK<endk< span=""></endk<>
+#' @param endK Maximum number of clusters. Type is integer
+#' @param r The order of an orthogonal polynomial of type integer
+#' @param outfilename String data describing the location and name prefix of the output file, The general format is: \ output file path \ Output file name prefix
+#' @param verbose Bool indicates whether to output running information
 #'
 #' @return NULL
 #' @export
 #'
 #' @examples
-Fclusty <- function(tmp_data,nt, J=9, r=0, init_rho, init_sigsq, out_file_name)
+#'
+Fclusty <- function(data, times, startK, endK, r, outfilename, verbose = FALSE){
+  if(startK > endK){
+    print("error: startK has to be less than endK")
+  }else{
+    for (i in startK:endK) {
+      init.run(data = data, times = times, J = i, r = 0, init_rho = 0.5,
+               init_sigsq = 0.5, out_file_name = outfilename)
+    }
+  }
+}
+
+init.run <- function(data, times, J=9, r=0, init_rho, init_sigsq, out_file_name)
 {
   #tmp <- read.table(datafile, skip=2, row.names=1, na.string = "null")
-  tmp <- tmp_data
+  set.seed(1)
+  tmp <- data
   tmp <- as.matrix(tmp)
   colnames(tmp) <- NULL
   keep.rows <- apply(tmp, 1, function(rw) !any(is.na(rw)))
   dat <- tmp[keep.rows,]
   ngene <- nrow(dat)
-  times <- nt
+  times <- times
   if(length(times) %% 2^r != 0) stop("Dimension Reduction too great")
   Data <- list(Y = dat, Z = NULL, tm = times)
   MP <- list(J=J, r=r, ngene=ngene, M=length(times)/(2^r))
@@ -57,7 +62,6 @@ Fclusty <- function(tmp_data,nt, J=9, r=0, init_rho, init_sigsq, out_file_name)
                 sigsq = init_sigsq),
     ll = -Inf
   )
-  #runEM(Theta, Data, MP, CP)
   mod <- runEM(Theta, Data, MP, CP)
   belong_matrix <- calculate_groups(tmp_data = dat, mean_matrix = mod$Theta$W, p_matrix = mod$Theta$P)
   write.table(belong_matrix, file = paste0(out_file_name, "_", J, "_", "Belong_matrix.txt"), row.names = FALSE, col.names = FALSE)

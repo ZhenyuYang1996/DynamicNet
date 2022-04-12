@@ -4,23 +4,26 @@
 \alias{Fclusty}
 \title{Title}
 \usage{
-Fclusty(tmp_data, nt, J = 9, r = 0, init_rho, init_sigsq, out_file_name)
+Fclusty(data, times, startK, endK, r, outfilename, verbose = FALSE)
 }
 \arguments{
-\item{tmp_data}{a Input data matrix}
+\item{data}{Enter the observation data matrix with dimension ????, and each row is an observation vector.}
 
-\item{nt}{a Input data matrix}
+\item{times}{Enter the time series vector with the dimension ????}
 
-\item{J}{a Input data matrix}
+\item{startK}{The initial number of clusters, of type integer, startK<endk< span=""></endk<>}
 
-\item{r}{a Input data matrix}
+\item{endK}{Maximum number of clusters. Type is integer}
 
-\item{init_rho}{a Input data matrix}
+\item{r}{The order of an orthogonal polynomial of type integer}
 
-\item{init_sigsq}{a Input data matrix}
+\item{outfilename}{String data describing the location and name prefix of the output file, The general format is: \ output file path \ Output file name prefix}
 
-\item{out_file_name}{a Input data matrix}
+\item{verbose}{Bool indicates whether to output running information}
 }
 \description{
 Title
+}
+\examples{
+
 }
