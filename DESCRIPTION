@@ -4,7 +4,7 @@ Title: Building dynamic Networks
 Version: 0.1.0
 Author: Yang Zhenyu
 Maintainer: The package maintainer <yourself@somewhere.net>
-Depends: R(>= 3.6.0), mvtnorm, parallel, methods, stats, utils
+Depends: R(>= 3.6.0), mvtnorm, glmnet, parallel, methods, stats, utils, igraph
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE

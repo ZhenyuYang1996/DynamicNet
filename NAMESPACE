@@ -1,7 +1,15 @@
 import(mvtnorm)
+import(glmnet)
 import(parallel)
 import(methods)
 import(stats)
 import(utils)
 
+
+
 export(Fclusty)
+export(Dnelastic)
+export(Dynetwork)
+export(fclusty_plot)
+export(net_eff_plot)
+export(dynetwork_plot)
