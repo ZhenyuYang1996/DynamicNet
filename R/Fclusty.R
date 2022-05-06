@@ -18,8 +18,8 @@ Fclusty <- function(data, times, startK, endK, r, outfilename, verbose = FALSE){
     print("error: startK has to be less than endK")
   }else{
     for (i in startK:endK) {
-      init.run(data = data, times = times, J = i, r = 0, init_rho = 0.5,
-               init_sigsq = 0.5, out_file_name = outfilename)
+      init.run(data = data, times = times, J = i, r = 0, init_rho = 0.1,
+               init_sigsq = 0.1, out_file_name = outfilename)
     }
   }
 }

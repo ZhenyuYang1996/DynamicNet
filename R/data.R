@@ -1,0 +1,29 @@
+#' Prices of 50,000 round cut diamonds.
+#'
+#' A dataset containing the prices and other attributes of almost 54,000
+#' diamonds.
+#'
+#' @format A data frame with 100 rows and 20 variables:
+#' \describe{
+#'   \item{V1}{price, in US dollars}
+#'   \item{V2}{weight of the diamond, in carats}
+#'   \item{V3}{weight of the diamond, in carats}
+#'   \item{V4}{weight of the diamond, in carats}
+#'   \item{V5}{weight of the diamond, in carats}
+#'   \item{V6}{weight of the diamond, in carats}
+#'   \item{V7}{weight of the diamond, in carats}
+#'   \item{V8}{weight of the diamond, in carats}
+#'   \item{V9}{weight of the diamond, in carats}
+#'   \item{V10}{weight of the diamond, in carats}
+#'   \item{V11}{weight of the diamond, in carats}
+#'   \item{V12}{weight of the diamond, in carats}
+#'   \item{V13}{weight of the diamond, in carats}
+#'   \item{V14}{weight of the diamond, in carats}
+#'   \item{V15}{weight of the diamond, in carats}
+#'   \item{V16}{weight of the diamond, in carats}
+#'   \item{V17}{weight of the diamond, in carats}
+#'   \item{V18}{weight of the diamond, in carats}
+#'   \item{V19}{weight of the diamond, in carats}
+#'   \item{V20}{weight of the diamond, in carats}
+#' }
+"dynamicnet_data"
